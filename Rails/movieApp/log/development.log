@@ -1,0 +1,1013 @@
+  [1m[36m (15.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (15.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateMovies (20160125153757)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  CREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "poster" varchar, "trailer" text, "released_on" date, "rating" varchar, "genre_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160125153757"]]
+  [1m[35m (15.6ms)[0m  commit transaction
+Migrating to CreateGenres (20160125154017)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  CREATE TABLE "genres" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160125154017"]]
+  [1m[35m (15.6ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for ::1 at 2016-01-25 15:49:27 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (3.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/railties-4.2.5/lib/rails/templates/rails/welcome/index.html.erb (14.0ms)
+Completed 200 OK in 102ms (Views: 77.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/info/properties" for ::1 at 2016-01-25 15:49:47 +0000
+Processing by Rails::InfoController#properties as */*
+  [1m[35mActiveRecord::SchemaMigration Load (2.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/railties-4.2.5/lib/rails/templates/rails/info/properties.html.erb (1.0ms)
+Completed 200 OK in 56ms (Views: 31.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/genres" for ::1 at 2016-01-25 15:50:03 +0000
+Processing by GenresController#index as HTML
+  [1m[36mGenre Load (4.0ms)[0m  [1mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 8134ms (Views: 8086.0ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/assets/movies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-25 15:50:11 +0000
+
+
+Started GET "/assets/scaffolds.self-f1ec8d3dd5ddfbd5bf982e12d56ed1849e8ddedae105edafa84e4ba9ffa7a7fd.css?body=1" for ::1 at 2016-01-25 15:50:11 +0000
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-01-25 15:50:12 +0000
+
+
+Started GET "/assets/genres.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-25 15:50:12 +0000
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-25 15:50:12 +0000
+
+
+Started GET "/assets/turbolinks.self-6fb86ff58d930b560704818c7d9e5f60d83d65b91c6778c7f7e4210d5ba82127.js?body=1" for ::1 at 2016-01-25 15:50:12 +0000
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-25 15:50:12 +0000
+
+
+Started GET "/assets/genres.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-25 15:50:12 +0000
+
+
+Started GET "/assets/movies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-25 15:50:12 +0000
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-01-25 15:50:12 +0000
+
+
+Started GET "/genres/new" for ::1 at 2016-01-25 15:51:46 +0000
+Processing by GenresController#new as HTML
+  Rendered genres/_form.html.erb (140.6ms)
+  Rendered genres/new.html.erb within layouts/application (171.8ms)
+Completed 200 OK in 390ms (Views: 374.6ms | ActiveRecord: 15.6ms)
+
+
+Started POST "/genres" for ::1 at 2016-01-25 15:52:15 +0000
+Processing by GenresController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VMfd6gSYU5SDeaaOrz+sjS8Ff7u9R06F+4LyMb+xXN0mzXPFj8nhbgpr/jmUtNYKRYU7vngDkw53Z+MU+Qr/hA==", "genre"=>{"name"=>"Kids"}, "commit"=>"Create Genre"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (18.0ms)[0m  [1mINSERT INTO "genres" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Kids"], ["created_at", "2016-01-25 15:52:15.799579"], ["updated_at", "2016-01-25 15:52:15.799579"]]
+  [1m[35m (36.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/genres/1
+Completed 302 Found in 89ms (ActiveRecord: 54.0ms)
+
+
+Started GET "/genres/1" for ::1 at 2016-01-25 15:52:15 +0000
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGenre Load (3.0ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered genres/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 241ms (Views: 178.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/genres" for ::1 at 2016-01-25 15:52:28 +0000
+Processing by GenresController#index as HTML
+  [1m[35mGenre Load (0.0ms)[0m  SELECT "genres".* FROM "genres"
+  Rendered genres/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 251ms (Views: 250.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/genres/new" for ::1 at 2016-01-25 15:52:33 +0000
+Processing by GenresController#new as HTML
+  Rendered genres/_form.html.erb (15.6ms)
+  Rendered genres/new.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 235ms (Views: 234.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/genres" for ::1 at 2016-01-25 15:52:42 +0000
+Processing by GenresController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dC0idOg2md2myvD1ZB4T+moGST6QeMvG+AHKc0JGQIYGJ4xbY2crJy/YqEJflWl9AIYNO1U8Fk105NtWBP3j3w==", "genre"=>{"name"=>"Thriller"}, "commit"=>"Create Genre"}
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (5.0ms)[0m  INSERT INTO "genres" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Thriller"], ["created_at", "2016-01-25 15:52:42.439179"], ["updated_at", "2016-01-25 15:52:42.439179"]]
+  [1m[36m (31.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/genres/2
+Completed 302 Found in 41ms (ActiveRecord: 37.0ms)
+
+
+Started GET "/genres/2" for ::1 at 2016-01-25 15:52:42 +0000
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mGenre Load (3.0ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered genres/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 191ms (Views: 186.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/genres" for ::1 at 2016-01-25 15:52:44 +0000
+Processing by GenresController#index as HTML
+  [1m[36mGenre Load (0.0ms)[0m  [1mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 210ms (Views: 209.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/genres/new" for ::1 at 2016-01-25 15:52:46 +0000
+Processing by GenresController#new as HTML
+  Rendered genres/_form.html.erb (0.0ms)
+  Rendered genres/new.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 225ms (Views: 224.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/genres" for ::1 at 2016-01-25 15:52:51 +0000
+Processing by GenresController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ddqjjdeTH0u/wM/K4UjSATW43TbYT4yODTsVRWxFIKYH0A2iXMKtsTbSl33aw6iGXziZMx0LUQWB3gRgKv6D/w==", "genre"=>{"name"=>"Horror"}, "commit"=>"Create Genre"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (4.0ms)[0m  [1mINSERT INTO "genres" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Horror"], ["created_at", "2016-01-25 15:52:51.282179"], ["updated_at", "2016-01-25 15:52:51.282179"]]
+  [1m[35m (58.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/genres/3
+Completed 302 Found in 68ms (ActiveRecord: 62.0ms)
+
+
+Started GET "/genres/3" for ::1 at 2016-01-25 15:52:51 +0000
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGenre Load (3.0ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered genres/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 171ms (Views: 167.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/genres" for ::1 at 2016-01-25 15:52:53 +0000
+Processing by GenresController#index as HTML
+  [1m[35mGenre Load (0.0ms)[0m  SELECT "genres".* FROM "genres"
+  Rendered genres/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 199ms (Views: 199.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/genres/new" for ::1 at 2016-01-25 15:52:56 +0000
+Processing by GenresController#new as HTML
+  Rendered genres/_form.html.erb (0.0ms)
+  Rendered genres/new.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 235ms (Views: 235.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/genres" for ::1 at 2016-01-25 15:53:03 +0000
+Processing by GenresController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"noUwKJzl0Ap4IEwV3mo2M1eu5nlcEVBaGwfkfZnl0mHsj54HF7Ri8PEyFKLl4Uy0PS6ifJlVjdGX4vVY315xOA==", "genre"=>{"name"=>"Action"}, "commit"=>"Create Genre"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (5.0ms)[0m  INSERT INTO "genres" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Action"], ["created_at", "2016-01-25 15:53:03.036179"], ["updated_at", "2016-01-25 15:53:03.036179"]]
+  [1m[36m (33.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/genres/4
+Completed 302 Found in 44ms (ActiveRecord: 38.0ms)
+
+
+Started GET "/genres/4" for ::1 at 2016-01-25 15:53:03 +0000
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mGenre Load (3.0ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered genres/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 178ms (Views: 174.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/genres" for ::1 at 2016-01-25 15:53:05 +0000
+Processing by GenresController#index as HTML
+  [1m[36mGenre Load (0.0ms)[0m  [1mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 173ms (Views: 172.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/genres/1" for ::1 at 2016-01-25 15:53:34 +0000
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mGenre Load (0.0ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered genres/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 197ms (Views: 196.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/genres/2" for ::1 at 2016-01-25 15:53:44 +0000
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGenre Load (2.0ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered genres/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 208ms (Views: 203.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/genres/2/edit" for ::1 at 2016-01-25 15:53:48 +0000
+Processing by GenresController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mGenre Load (31.2ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered genres/_form.html.erb (0.0ms)
+  Rendered genres/edit.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 247ms (Views: 214.6ms | ActiveRecord: 31.2ms)
+
+
+Started GET "/genres/4/edit" for ::1 at 2016-01-25 15:53:54 +0000
+Processing by GenresController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mGenre Load (31.2ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered genres/_form.html.erb (0.0ms)
+  Rendered genres/edit.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 233ms (Views: 200.4ms | ActiveRecord: 31.2ms)
+
+
+Started GET "/genres/4" for ::1 at 2016-01-25 15:54:03 +0000
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mGenre Load (0.0ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered genres/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 175ms (Views: 159.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/genres" for ::1 at 2016-01-25 15:54:05 +0000
+Processing by GenresController#index as HTML
+  [1m[36mGenre Load (15.6ms)[0m  [1mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 194ms (Views: 178.6ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/genres/4/edit" for ::1 at 2016-01-25 15:55:00 +0000
+Processing by GenresController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mGenre Load (15.6ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered genres/_form.html.erb (0.0ms)
+  Rendered genres/edit.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 197ms (Views: 181.6ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/genres/4" for ::1 at 2016-01-25 15:55:04 +0000
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mGenre Load (2.0ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered genres/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 217ms (Views: 197.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/movies" for ::1 at 2016-01-25 15:55:15 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (3.0ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 233ms (Views: 189.0ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/movies/new" for ::1 at 2016-01-25 15:55:19 +0000
+Processing by MoviesController#new as HTML
+  Rendered movies/_form.html.erb (46.8ms)
+  Rendered movies/new.html.erb within layouts/application (96.0ms)
+Completed 200 OK in 288ms (Views: 279.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/movies/new" for ::1 at 2016-01-25 15:57:29 +0000
+Processing by MoviesController#new as HTML
+  Rendered movies/_form.html.erb (0.0ms)
+  Rendered movies/new.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 219ms (Views: 219.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/movies" for ::1 at 2016-01-25 15:58:09 +0000
+Processing by MoviesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cnunuGyReX2204179mLEwIBvWvboNF2HpFVks6rZFm4AcQmX58DLhz/B1czN6b5H6u8e8y1wgAwosHWW7GK1Nw==", "movie"=>{"title"=>"Shawshank", "poster"=>"sample poster", "trailer"=>"shwshank trailer", "released_on(1i)"=>"2016", "released_on(2i)"=>"1", "released_on(3i)"=>"25", "rating"=>"4", "genre_id"=>"1"}, "commit"=>"Create Movie"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (4.0ms)[0m  INSERT INTO "movies" ("title", "poster", "trailer", "rating", "genre_id", "released_on", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["title", "Shawshank"], ["poster", "sample poster"], ["trailer", "shwshank trailer"], ["rating", "4"], ["genre_id", 1], ["released_on", "2016-01-25"], ["created_at", "2016-01-25 15:58:09.322379"], ["updated_at", "2016-01-25 15:58:09.322379"]]
+  [1m[36m (45.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/movies/1
+Completed 302 Found in 58ms (ActiveRecord: 49.0ms)
+
+
+Started GET "/movies/1" for ::1 at 2016-01-25 15:58:09 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (2.0ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered movies/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 185ms (Views: 181.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/movies" for ::1 at 2016-01-25 15:58:21 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 190ms (Views: 190.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/movies/new" for ::1 at 2016-01-25 15:58:22 +0000
+Processing by MoviesController#new as HTML
+  Rendered movies/_form.html.erb (0.0ms)
+  Rendered movies/new.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 233ms (Views: 232.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/movies" for ::1 at 2016-01-25 15:58:43 +0000
+Processing by MoviesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZaxeVlxLGMRM+vfSOmgaF7NirGLMsEy6zFftftnQVDoXpvB51xqqPsXor2UB42CQ2eLoZwn0kTFAsvxbn2v3Yw==", "movie"=>{"title"=>"forrest gump", "poster"=>"fg", "trailer"=>"fg trailer", "released_on(1i)"=>"2016", "released_on(2i)"=>"1", "released_on(3i)"=>"25", "rating"=>"5", "genre_id"=>"2"}, "commit"=>"Create Movie"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (6.0ms)[0m  [1mINSERT INTO "movies" ("title", "poster", "trailer", "rating", "genre_id", "released_on", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "forrest gump"], ["poster", "fg"], ["trailer", "fg trailer"], ["rating", "5"], ["genre_id", 2], ["released_on", "2016-01-25"], ["created_at", "2016-01-25 15:58:43.834579"], ["updated_at", "2016-01-25 15:58:43.834579"]]
+  [1m[35m (53.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/movies/2
+Completed 302 Found in 65ms (ActiveRecord: 59.0ms)
+
+
+Started GET "/movies/2" for ::1 at 2016-01-25 15:58:43 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMovie Load (3.0ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered movies/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 197ms (Views: 192.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/movies" for ::1 at 2016-01-25 15:58:47 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 172ms (Views: 171.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/movies/new" for ::1 at 2016-01-25 16:04:55 +0000
+Processing by MoviesController#new as HTML
+  Rendered movies/_form.html.erb (62.4ms)
+  Rendered movies/new.html.erb within layouts/application (78.0ms)
+Completed 500 Internal Server Error in 160ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined local variable or method `genre_id' for #<#<Class:0x6da4f18>:0x8c78f28>):
+    33:   </div>
+    34:   <div class="field">
+    35:     <%= f.label :genre_id %><br>
+    36:     <%= f.collection_select genre_id,Genre.all,:id,:name %>
+    37:   </div>
+    38:   <div class="actions">
+    39:     <%= f.submit %>
+  app/views/movies/_form.html.erb:36:in `block in _app_views_movies__form_html_erb___85282967_73567776'
+  app/views/movies/_form.html.erb:1:in `_app_views_movies__form_html_erb___85282967_73567776'
+  app/views/movies/new.html.erb:3:in `_app_views_movies_new_html_erb__945819400_81536760'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (47.8ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (60.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (133.0ms)
+
+
+Started GET "/movies/new" for ::1 at 2016-01-25 16:04:55 +0000
+Processing by MoviesController#new as HTML
+  Rendered movies/_form.html.erb (46.0ms)
+  Rendered movies/new.html.erb within layouts/application (64.0ms)
+Completed 500 Internal Server Error in 113ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined local variable or method `genre_id' for #<#<Class:0x6da4f18>:0x4162aa0>):
+    33:   </div>
+    34:   <div class="field">
+    35:     <%= f.label :genre_id %><br>
+    36:     <%= f.collection_select genre_id,Genre.all,:id,:name %>
+    37:   </div>
+    38:   <div class="actions">
+    39:     <%= f.submit %>
+  app/views/movies/_form.html.erb:36:in `block in _app_views_movies__form_html_erb___85282967_33517368'
+  app/views/movies/_form.html.erb:1:in `_app_views_movies__form_html_erb___85282967_33517368'
+  app/views/movies/new.html.erb:3:in `_app_views_movies_new_html_erb__945819400_34109148'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (54.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (53.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (114.0ms)
+
+
+Started GET "/movies/new" for ::1 at 2016-01-25 16:05:00 +0000
+Processing by MoviesController#new as HTML
+  Rendered movies/_form.html.erb (34.0ms)
+  Rendered movies/new.html.erb within layouts/application (52.0ms)
+Completed 500 Internal Server Error in 106ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined local variable or method `genre_id' for #<#<Class:0x6da4f18>:0x8ab25a8>):
+    33:   </div>
+    34:   <div class="field">
+    35:     <%= f.label :genre_id %><br>
+    36:     <%= f.collection_select genre_id,Genre.all,:id,:name %>
+    37:   </div>
+    38:   <div class="actions">
+    39:     <%= f.submit %>
+  app/views/movies/_form.html.erb:36:in `block in _app_views_movies__form_html_erb___85282967_33517368'
+  app/views/movies/_form.html.erb:1:in `_app_views_movies__form_html_erb___85282967_33517368'
+  app/views/movies/new.html.erb:3:in `_app_views_movies_new_html_erb__945819400_34109148'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (54.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (51.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (113.0ms)
+
+
+Started GET "/movies" for ::1 at 2016-01-25 16:05:06 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (3.0ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 184ms (Views: 181.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/movies" for ::1 at 2016-01-25 16:05:08 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (2.0ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 172ms (Views: 170.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/genres.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-25 16:05:08 +0000
+
+
+Started GET "/assets/movies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-25 16:05:08 +0000
+
+
+Started GET "/assets/scaffolds.self-f1ec8d3dd5ddfbd5bf982e12d56ed1849e8ddedae105edafa84e4ba9ffa7a7fd.css?body=1" for ::1 at 2016-01-25 16:05:08 +0000
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-01-25 16:05:08 +0000
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-25 16:05:08 +0000
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-25 16:05:08 +0000
+
+
+Started GET "/assets/turbolinks.self-6fb86ff58d930b560704818c7d9e5f60d83d65b91c6778c7f7e4210d5ba82127.js?body=1" for ::1 at 2016-01-25 16:05:08 +0000
+
+
+Started GET "/assets/genres.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-25 16:05:08 +0000
+
+
+Started GET "/assets/movies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-25 16:05:08 +0000
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-01-25 16:05:08 +0000
+
+
+Started GET "/movies/new" for ::1 at 2016-01-25 16:05:10 +0000
+Processing by MoviesController#new as HTML
+  Rendered movies/_form.html.erb (46.8ms)
+  Rendered movies/new.html.erb within layouts/application (62.4ms)
+Completed 500 Internal Server Error in 145ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined local variable or method `genre_id' for #<#<Class:0x6da4f18>:0x9dc04a0>):
+    33:   </div>
+    34:   <div class="field">
+    35:     <%= f.label :genre_id %><br>
+    36:     <%= f.collection_select genre_id,Genre.all,:id,:name %>
+    37:   </div>
+    38:   <div class="actions">
+    39:     <%= f.submit %>
+  app/views/movies/_form.html.erb:36:in `block in _app_views_movies__form_html_erb___85282967_73567776'
+  app/views/movies/_form.html.erb:1:in `_app_views_movies__form_html_erb___85282967_73567776'
+  app/views/movies/new.html.erb:3:in `_app_views_movies_new_html_erb__945819400_81536760'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (46.8ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (46.8ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (110.2ms)
+
+
+Started GET "/movies/new" for ::1 at 2016-01-25 16:05:10 +0000
+Processing by MoviesController#new as HTML
+  Rendered movies/_form.html.erb (37.0ms)
+  Rendered movies/new.html.erb within layouts/application (56.0ms)
+Completed 500 Internal Server Error in 107ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined local variable or method `genre_id' for #<#<Class:0x6da4f18>:0x8709de0>):
+    33:   </div>
+    34:   <div class="field">
+    35:     <%= f.label :genre_id %><br>
+    36:     <%= f.collection_select genre_id,Genre.all,:id,:name %>
+    37:   </div>
+    38:   <div class="actions">
+    39:     <%= f.submit %>
+  app/views/movies/_form.html.erb:36:in `block in _app_views_movies__form_html_erb___85282967_33517368'
+  app/views/movies/_form.html.erb:1:in `_app_views_movies__form_html_erb___85282967_33517368'
+  app/views/movies/new.html.erb:3:in `_app_views_movies_new_html_erb__945819400_34109148'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (59.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (56.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (120.0ms)
+
+
+Started GET "/movies/new" for ::1 at 2016-01-25 16:06:08 +0000
+Processing by MoviesController#new as HTML
+  [1m[36mGenre Load (4.0ms)[0m  [1mSELECT "genres".* FROM "genres"[0m
+  Rendered movies/_form.html.erb (34.0ms)
+  Rendered movies/new.html.erb within layouts/application (53.0ms)
+Completed 200 OK in 256ms (Views: 251.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/movies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-25 16:06:08 +0000
+
+
+Started GET "/assets/scaffolds.self-f1ec8d3dd5ddfbd5bf982e12d56ed1849e8ddedae105edafa84e4ba9ffa7a7fd.css?body=1" for ::1 at 2016-01-25 16:06:09 +0000
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-25 16:06:09 +0000
+
+
+Started GET "/assets/genres.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-25 16:06:09 +0000
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-01-25 16:06:09 +0000
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-25 16:06:09 +0000
+
+
+Started GET "/assets/turbolinks.self-6fb86ff58d930b560704818c7d9e5f60d83d65b91c6778c7f7e4210d5ba82127.js?body=1" for ::1 at 2016-01-25 16:06:09 +0000
+
+
+Started GET "/assets/genres.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-25 16:06:09 +0000
+
+
+Started GET "/assets/movies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-25 16:06:09 +0000
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-01-25 16:06:09 +0000
+
+
+Started GET "/movies" for ::1 at 2016-01-25 16:11:08 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 228ms (Views: 226.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/movies/1" for ::1 at 2016-01-25 16:11:11 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (2.0ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered movies/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 187ms (Views: 182.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/movies/1" for ::1 at 2016-01-25 16:12:00 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (3.0ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mGenre Load (2.0ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered movies/show.html.erb within layouts/application (85.0ms)
+Completed 200 OK in 275ms (Views: 268.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-25 16:12:00 +0000
+
+
+Started GET "/assets/genres.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-25 16:12:01 +0000
+
+
+Started GET "/assets/scaffolds.self-f1ec8d3dd5ddfbd5bf982e12d56ed1849e8ddedae105edafa84e4ba9ffa7a7fd.css?body=1" for ::1 at 2016-01-25 16:12:01 +0000
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-01-25 16:12:01 +0000
+
+
+Started GET "/assets/movies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-25 16:12:01 +0000
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-25 16:12:01 +0000
+
+
+Started GET "/assets/turbolinks.self-6fb86ff58d930b560704818c7d9e5f60d83d65b91c6778c7f7e4210d5ba82127.js?body=1" for ::1 at 2016-01-25 16:12:01 +0000
+
+
+Started GET "/assets/genres.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-25 16:12:01 +0000
+
+
+Started GET "/assets/movies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-25 16:12:01 +0000
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-01-25 16:12:01 +0000
+
+
+Started GET "/movies" for ::1 at 2016-01-25 16:15:21 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (3.0ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 204ms (Views: 200.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/movies/2" for ::1 at 2016-01-25 16:15:24 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mGenre Load (15.6ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered movies/show.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 178ms (Views: 162.2ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/index" for ::1 at 2016-01-25 16:23:11 +0000
+
+ActionController::RoutingError (No route matches [GET] "/index"):
+  actionpack (4.2.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:39:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (13.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (117.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (51.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (118.0ms)
+
+
+Started GET "/movies" for ::1 at 2016-01-25 16:23:16 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (3.0ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 189ms (Views: 186.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/movies" for ::1 at 2016-01-25 16:23:33 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (3.0ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 192ms (Views: 187.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/genres.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-25 16:23:33 +0000
+
+
+Started GET "/assets/scaffolds.self-f1ec8d3dd5ddfbd5bf982e12d56ed1849e8ddedae105edafa84e4ba9ffa7a7fd.css?body=1" for ::1 at 2016-01-25 16:23:33 +0000
+
+
+Started GET "/assets/movies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-25 16:23:33 +0000
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-01-25 16:23:33 +0000
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-25 16:23:33 +0000
+
+
+Started GET "/assets/turbolinks.self-6fb86ff58d930b560704818c7d9e5f60d83d65b91c6778c7f7e4210d5ba82127.js?body=1" for ::1 at 2016-01-25 16:23:33 +0000
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-25 16:23:34 +0000
+
+
+Started GET "/assets/genres.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-25 16:23:34 +0000
+
+
+Started GET "/assets/movies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-25 16:23:34 +0000
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-01-25 16:23:34 +0000
+
+
+Started GET "/genres" for ::1 at 2016-01-25 16:36:39 +0000
+Processing by GenresController#index as HTML
+  [1m[36mGenre Load (3.0ms)[0m  [1mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 218ms (Views: 214.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/genres" for ::1 at 2016-01-25 16:51:49 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (3.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GenresController#index as HTML
+  [1m[35mGenre Load (3.0ms)[0m  SELECT "genres".* FROM "genres"
+  Rendered genres/index.html.erb within layouts/application (37.0ms)
+Completed 200 OK in 911ms (Views: 832.0ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/genres/1" for ::1 at 2016-01-25 16:51:54 +0000
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGenre Load (0.0ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered genres/show.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 119ms (ActiveRecord: 0.0ms)
+
+SyntaxError (H:/Rails/movieApp/app/views/genres/show.html.erb:12: syntax error, unexpected '<'
+<%= link_to 'Edit', edit_genre...
+ ^):
+  app/views/genres/show.html.erb:12: syntax error, unexpected '<'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (51.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (49.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (141.2ms)
+
+
+Started GET "/genres/1" for ::1 at 2016-01-25 16:51:55 +0000
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mGenre Load (2.0ms)[0m  SELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered genres/show.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 2.0ms)
+
+SyntaxError (H:/Rails/movieApp/app/views/genres/show.html.erb:12: syntax error, unexpected '<'
+<%= link_to 'Edit', edit_genre...
+ ^):
+  app/views/genres/show.html.erb:12: syntax error, unexpected '<'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (52.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (51.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (113.0ms)
+
+
+Started GET "/genres/1" for ::1 at 2016-01-25 16:52:30 +0000
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGenre Load (3.0ms)[0m  [1mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mMovie Load (3.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."genre_id" = ?  [["genre_id", 1]]
+  Rendered genres/show.html.erb within layouts/application (158.0ms)
+Completed 200 OK in 355ms (Views: 342.0ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/assets/genres.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-25 16:52:30 +0000
+
+
+Started GET "/assets/movies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-25 16:52:30 +0000
+
+
+Started GET "/assets/scaffolds.self-f1ec8d3dd5ddfbd5bf982e12d56ed1849e8ddedae105edafa84e4ba9ffa7a7fd.css?body=1" for ::1 at 2016-01-25 16:52:30 +0000
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-01-25 16:52:30 +0000
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-25 16:52:30 +0000
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-25 16:52:30 +0000
+
+
+Started GET "/assets/turbolinks.self-6fb86ff58d930b560704818c7d9e5f60d83d65b91c6778c7f7e4210d5ba82127.js?body=1" for ::1 at 2016-01-25 16:52:30 +0000
+
+
+Started GET "/assets/genres.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-25 16:52:30 +0000
+
+
+Started GET "/assets/movies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-25 16:52:31 +0000
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-01-25 16:52:31 +0000
+
+
+Started GET "/" for ::1 at 2016-01-26 14:58:11 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/railties-4.2.5/lib/rails/templates/rails/welcome/index.html.erb (16.0ms)
+Completed 200 OK in 113ms (Views: 72.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/movies" for ::1 at 2016-01-26 14:58:18 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 937ms (Views: 881.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/assets/scaffolds.self-f1ec8d3dd5ddfbd5bf982e12d56ed1849e8ddedae105edafa84e4ba9ffa7a7fd.css?body=1" for ::1 at 2016-01-26 14:58:19 +0000
+
+
+Started GET "/assets/genres.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-26 14:58:19 +0000
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-26 14:58:19 +0000
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-26 14:58:19 +0000
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-01-26 14:58:19 +0000
+
+
+Started GET "/assets/movies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-26 14:58:19 +0000
+
+
+Started GET "/assets/turbolinks.self-6fb86ff58d930b560704818c7d9e5f60d83d65b91c6778c7f7e4210d5ba82127.js?body=1" for ::1 at 2016-01-26 14:58:19 +0000
+
+
+Started GET "/assets/genres.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-26 14:58:19 +0000
+
+
+Started GET "/assets/movies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-26 14:58:19 +0000
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-01-26 14:58:20 +0000
+
+
+Started GET "/movies/new" for ::1 at 2016-01-26 14:58:22 +0000
+Processing by MoviesController#new as HTML
+  [1m[36mGenre Load (0.0ms)[0m  [1mSELECT "genres".* FROM "genres"[0m
+  Rendered movies/_form.html.erb (353.2ms)
+  Rendered movies/new.html.erb within layouts/application (434.2ms)
+Completed 200 OK in 647ms (Views: 645.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/movies" for ::1 at 2016-01-26 14:58:24 +0000
+Processing by MoviesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PYvlbwZhh7JYuAFLOnFnLfTegbq3iKnRPjNIp/dztBunkfVAUcRB6vKjzwMvQir9+Z3efFEilqpcLq0qWc/TTw==", "movie"=>{"title"=>"", "poster"=>"", "trailer"=>"", "released_on(1i)"=>"2016", "released_on(2i)"=>"1", "released_on(3i)"=>"26", "rating"=>"", "genre_id"=>"1"}, "commit"=>"Create Movie"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35mGenre Load (2.0ms)[0m  SELECT "genres".* FROM "genres"
+  Rendered movies/_form.html.erb (10.0ms)
+  Rendered movies/new.html.erb within layouts/application (31.0ms)
+Completed 200 OK in 233ms (Views: 226.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/movies/new" for ::1 at 2016-01-26 15:02:05 +0000
+Processing by MoviesController#new as HTML
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms)
+
+SyntaxError (H:/Rails/movieApp/app/models/movie.rb:7: syntax error, unexpected keyword_in
+...	vlidates :rating ,inclusion{in:rating, message:"must be bet...
+...	                              ^):
+  app/models/movie.rb:7: syntax error, unexpected keyword_in
+  app/controllers/movies_controller.rb:17:in `new'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (67.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (40.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (92.0ms)
+
+
+Started GET "/movies/new" for ::1 at 2016-01-26 15:02:48 +0000
+Processing by MoviesController#new as HTML
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms)
+
+SyntaxError (H:/Rails/movieApp/app/models/movie.rb:7: syntax error, unexpected keyword_in
+...validates :rating ,inclusion{in:RATING, message:"must be bet...
+...                               ^):
+  app/models/movie.rb:7: syntax error, unexpected keyword_in
+  app/controllers/movies_controller.rb:17:in `new'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (39.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (37.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (81.0ms)
+
+
+Started GET "/movies/new" for ::1 at 2016-01-26 15:03:23 +0000
+Processing by MoviesController#new as HTML
+  [1m[36mGenre Load (4.0ms)[0m  [1mSELECT "genres".* FROM "genres"[0m
+  Rendered movies/_form.html.erb (44.0ms)
+  Rendered movies/new.html.erb within layouts/application (67.0ms)
+Completed 200 OK in 309ms (Views: 261.0ms | ActiveRecord: 24.0ms)
+
+
+Started GET "/assets/movies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-26 15:03:24 +0000
+
+
+Started GET "/assets/genres.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-01-26 15:03:24 +0000
+
+
+Started GET "/assets/scaffolds.self-f1ec8d3dd5ddfbd5bf982e12d56ed1849e8ddedae105edafa84e4ba9ffa7a7fd.css?body=1" for ::1 at 2016-01-26 15:03:24 +0000
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-01-26 15:03:24 +0000
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-01-26 15:03:24 +0000
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-01-26 15:03:24 +0000
+
+
+Started GET "/assets/turbolinks.self-6fb86ff58d930b560704818c7d9e5f60d83d65b91c6778c7f7e4210d5ba82127.js?body=1" for ::1 at 2016-01-26 15:03:24 +0000
+
+
+Started GET "/assets/genres.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-26 15:03:24 +0000
+
+
+Started GET "/assets/movies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-01-26 15:03:24 +0000
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-01-26 15:03:24 +0000
+
+
+Started POST "/movies" for ::1 at 2016-01-26 15:03:28 +0000
+Processing by MoviesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"W5zpkx7b1OLCioBzgDcBlkZDOfu2jvEhvVyQ1nYozurBhvm8SX4SumiRTjuVBExGSwBmPVAkzlrfQXVb2JSpvg==", "movie"=>{"title"=>"xc", "poster"=>"", "trailer"=>"", "released_on(1i)"=>"2016", "released_on(2i)"=>"1", "released_on(3i)"=>"26", "rating"=>"", "genre_id"=>"1"}, "commit"=>"Create Movie"}
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35mGenre Load (3.0ms)[0m  SELECT "genres".* FROM "genres"
+  Rendered movies/_form.html.erb (10.0ms)
+  Rendered movies/new.html.erb within layouts/application (35.0ms)
+Completed 200 OK in 263ms (Views: 255.0ms | ActiveRecord: 4.0ms)

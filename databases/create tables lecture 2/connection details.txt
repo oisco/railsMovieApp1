@@ -1,3 +1,0 @@
-ORA03
-ORACLE
-Connect SID    ORCL
