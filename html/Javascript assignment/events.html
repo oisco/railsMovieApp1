@@ -1,0 +1,85 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<h1>Upcoming mma events</h1>
+</head>
+
+<body>
+
+	<p id="eventPic"><img src='eventPic00.jpg' align="left" height='400' width=50%> </p> 	
+	<p align='center'>	<b>Fight Card <b> </p>
+					<p id="fightCardTitle" align='middle'>UFC Fight Night Dublin Poirer vs Duffy</p>
+					<p id ="fightCard" align="middle">Joseph Duffy vs Dustin Poirer <br> Norman Parke vs Reza Madadi <br> Nicolas Dalby vs Darren Till <br> Paddy Hoolohan vs Louis Smolka <br> Micheal Lebout vs Stevie Ray <br> Jon Delos Reyes vs Neil Seery<br> Ericka Almeida vs Aisling Daly <br> Scot Askham vs Krystof Jotko <br> Tom Breese vs Cathal Pendred <br> Darren Elkins vs Robert Whitefor </p>
+
+
+<div id='bottom-left'>
+<button onclick="previousEvent();">Previous Event</button>
+<button onclick="nextEvent();">Next Event</button>
+</div>
+
+<script>
+
+///set the below to be event posters and act as a link to a separate page for that event
+	var i=0;
+	
+	///create event objects 
+	var duffyPoirer={fightcard:"Joseph Duffy vs Dustin Poirer <br> Norman Parke vs Reza Madadi <br> Nicolas Dalby vs Darren Till <br> Paddy Hoolohan vs Louis Smolka <br> Micheal Lebout vs Stevie Ray <br> Jon Delos Reyes vs Neil Seery<br> Ericka Almeida vs Aisling Daly <br> Scot Askham vs Krystof Jotko <br> Tom Breese vs Cathal Pendred <br> Darren Elkins vs Robert Whiteford <br> Bubba Bush vs Garreth McLellan",picture:"<img src='eventPic00.jpg' align='left' height='400' width=50%>",title:"UFC Fight Night Dublin Poirer vs Duffy"};
+	var belfortHenderson={fightcard:"Vitor Belfort vs. Dan Henderson <br> Patrick Cummins vs. Glover Teixeira <br> Thomas Almeida vs. Anthony Birchak <br> Piotr Hallmann vs. Alex Oliveira <br> Gilbert Burns vs. Rashid Magomedov <br> Tom Lawlor vs. Fabio Maldonado <br> Gleison Tibau vs. Abel Trujillo <br> Yan Cabral vs. Johnny Case <br> Clay Guida vs. Thiago Tavares <br> Chas Skelly vs. Kevin Souza",picture:"<img src='eventPic01.jpg' align='left' height='400' width=50%>",title:"UFC Fight Night Belfort vs Henderson 3"};
+	var brownGastellum={fightcard:"Matt Brown vs. Kelvin Gastelum<br>Ricardo Lamas vs. Diego Sanchez<br>Henry Cejudo vs. Jussier Formiga<br>Efrain Escudero vs. Leandro Silv<br>Erik Perez vs. Damian Stasiak<br>Bartosz Fabinski vs. Hector Urbina<br>Valmir Lazaro vs. Michel Prazeres<br>Gabriel Benitez vs. Andre Fili<br>Scott Jorgensen vs. Alejandro Perez",picture:"<img src='eventPic02.jpg' align='left' height='400' width=50%>",title:"UFC Fight Night Brown vs Gastellum"};
+	var hendersonAlves={fightcard:"Thiago Alves vs. Benson Henderson<br>Mirko Filipovic vs. Anthony Hamilton<br>Dong Hyun Kim vs. Jorge Masvidal<brYoshihiro Akiyama vs. Alberto Mina<br>Hyun Gyu Lim vs. Dominique Steele<br>Doo Ho Choi vs. Sam Sicilia<br>Yui Chul Nam vs. Mike De La Torre<br>Tae Hyun Bang vs. Leo Kuntz<br>Jake Collier vs. Dongi Yang<br>Fredy Serrano vs. Yao Zhikui<br>Marco Beltran vs. Ning Guangyou<br>Cortney Casey vs. Seo Hee Ham",picture:"<img src='eventPic03.jpg' align='left' height='400' width=50%>",title:"UFC Fight Night Henderson vs Alves"};
+	var calderwoodVanzant={fightcard:"Joanne Calderwood vs. Paige VanZant<br>Michael Chiesa vs. Jim Miller<br>Thiago Marreta Santos vs. Elias Theodorou<br>Kevin Casey vs. Antonio Carlos Junior<br>Omari Akhmedov vs. Lyman Good<br>John Howard vs. Tim Means<br>Santiago Ponzinibbio vs. Andreas Stahl<br>Michael Graves vs. Danny Roberts<br>Phillipe Nover vs. Zubaira Tukhugov<br>Kailin Curran vs. Emily Kagan<br>Edgar Garcia vs. Sheldon Westcott<br>Johnny Eduardo vs. Aljamain Sterling",picture:"<img src='eventPic04.jpg' align='left' height='400' width=50%>",title:"UFC Fight Night Van Zant vs Calderwood"};
+	var edgarMendes={fightcard:"Frankie Edgar vs. Chad Mendes<br>Tony Ferguson vs. Khabib Nurmagomedov<br>Evan Dunham vs. Joe Lauzon<br>Ryan LaFlare vs. Mike Pierce<br>Mirsad Bektic vs. Tatsuya Kawajiri<br>Joby Sanchez vs. Justin Scoggins<br>Konstantin Erokhin vs. Gabriel Gonzaga",picture:"<img src='eventPic05.jpg' align='left' height='400' width=50%>",title:"UFC Fight Night Mendes vs Edgar"};
+	var mcgregorAldo={fightcard:"Jose Aldo vs. Conor McGregor <br>for featherweight title<br>Chris Weidman vs. Luke Rockhold <br>for middleweight title<br>Yoel Romero vs. Ronaldo Souza<br>Max Holloway vs. Jeremy Stephens<br>Urijah Faber vs. Frankie Saenz<br>Demian Maia vs. Gunnar Nelson<br>Tecia Torres vs. Michelle Waterson<br>Warlley Alves vs. Colby Covington<br>Marcio Alexandre Jr. vs. Court McGee<br>John Makdessi vs. Yancy Medeiros<br>Kevin Lee vs. Leonardo Santos<br>Magomed Mustafaev vs. Joe Proctor",picture:"<img src='eventPic06.jpg' align='left' height='400' width=50%>",title:"UFC196 McGregor vs Aldo"};
+	//store event objects in array
+	var events=[duffyPoirer,belfortHenderson,brownGastellum,hendersonAlves,calderwoodVanzant,edgarMendes,edgarMendes,mcgregorAldo];
+	
+	var currentEventPic=document.getElementById("eventPic");//store event picture
+	var currentEventTitle=document.getElementById("fightCardTitle");
+	var currentFightCard=document.getElementById("fightCard");
+	function nextEvent()
+	{
+
+		if (i==7)//if user is on last picture , reset it to be the first
+		{
+			i=0;
+
+			//update current pic,fightcard and title being displayed
+			currentEventPic.innerHTML=events[i].picture;
+			currentEventTitle.innerHTML=events[i].title; 
+			currentFightCard.innerHTML=events[i].fightcard;
+		}
+		else
+		{
+			i++;
+			//update current pic,fightcard and title being displayed
+			currentEventPic.innerHTML=events[i].picture;
+			currentEventTitle.innerHTML=events[i].title; 
+			currentFightCard.innerHTML=events[i].fightcard;
+		}
+	}
+	
+	function previousEvent()
+	{		
+		if(i==0)//if user is on first picture , reset it to be the last
+		{
+			i=7;
+			//update current pic,fightcard and title being displayed
+			currentEventPic.innerHTML=events[i].picture;
+			currentEventTitle.innerHTML=events[i].title; 
+			currentFightCard.innerHTML=events[i].fightcard;
+		}
+		else
+		{
+			i--;
+			//update current pic,fightcard and title being displayed
+			currentEventPic.innerHTML=events[i].picture;
+			currentEventTitle.innerHTML=events[i].title; 
+			currentFightCard.innerHTML=events[i].fightcard;	
+		}
+	} 
+	
+</script>
+
+</body>
+
+</html>

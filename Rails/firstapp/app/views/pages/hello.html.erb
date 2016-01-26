@@ -1,0 +1,12 @@
+
+<h1>hello page</h1>
+
+<h3> <%= @variable1 %> <h3>
+
+<ul>
+	<% @numbers.each do |n| %>
+		<li> <%= n %> </li>
+	<%end%>
+</ul>
+
+<%= link_to 'goodbye!',bye_path %>

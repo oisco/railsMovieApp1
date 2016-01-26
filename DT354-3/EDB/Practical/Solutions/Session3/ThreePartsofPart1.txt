@@ -1,0 +1,43 @@
+/*This code brings back the 10 job_history entries */
+
+
+SELECT e.employee_id, e.last_name, e.first_name, j.job_title 
+FROM employees e
+JOIN jobs j
+JOIN job_history jh
+ON jh.job_id = j.job_id
+ON jh.employee_id = e.employee_id;
+
+
+
+/* This code brings back the 107 employee rows */
+
+SELECT e.employee_id, e.last_name, e.first_name, j.job_title 
+FROM employees e
+JOIN jobs j
+ON e.job_id = j.job_id
+Order by employee_id;
+
+
+/* The following is the code put together and using the UNION clause I */
+/* can return 117 rows. In order for it to work I need the same column names */
+/* in both SELECT statements */
+
+SELECT e.employee_id, e.last_name, e.first_name, j.job_title 
+FROM employees e
+JOIN jobs j
+JOIN job_history jh
+ON jh.job_id = j.job_id
+ON jh.employee_id = e.employee_id
+UNION ALL
+SELECT e.employee_id, e.last_name, e.first_name, j.job_title 
+FROM employees e
+JOIN jobs j
+ON e.job_id = j.job_id
+Order by employee_id;
+
+
+
+/* TRY THIS code out separately and then together and  THEN */
+
+/* you can create the view......................*/

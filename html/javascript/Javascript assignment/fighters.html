@@ -1,0 +1,110 @@
+<html>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<head>
+<h1><img src='images/fighters.png' height=50></h1>
+</head>
+
+<body>
+<p id='toChange'>
+	<img id="mainfighterpic" src='images/jones.png' align='left' height="375" width="700"> 
+	<div align='center'>
+	<span>
+	<p id="fighterInfo">Name:	Jon Jones<br><br> Record:	21-2<br><br> Age: 	28<br> <br>Country	USA </p>
+	</span>
+	</div>
+</p>	
+	<div id='fighters'>
+	<button class="btn" onclick="goLeft()"><<</button><img src="images/jones.png" id= "fighter01" onclick="changeFighter('images/jones.png')" width="250" height="125" ><img id= "fighter02" src="images/mcgregor.png" onclick="changeFighter('images/mcgregor.png')" width="250" height="125"><img id= "fighter03" src="images/silva.png" onclick="changeFighter('images/silva.png')" width="250" height="125"><img id= "fighter04" src="images/weidman.png" onclick="changeFighter('images/weidman.png')" width="250" height="125"><img id= "fighter05" src="images/aldo.png" onclick="changeFighter('images/aldo.png')" width="250" height="125"><button class="btn" onclick="goRight()">>></button>
+	</div>
+	<script src="jquery/jquery-1.11.3.min.js"></script>
+
+	<script>
+	//create fighters
+	 var mcGregor={name:"Conor McGregor",record:"18-2",age:"27",country:"Ireland",picture:'images/mcgregor.png'};
+	 var aldo={name:"Jose Aldo",record:"25-1",age:"29",country:"Brazil",picture:"images/aldo.png"};
+	 var jones={name:"Jon Jones",record:"21-1",age:"28",country:"USA",picture:"images/jones.png"};
+	 var silva={name:"Anderson Silva",record:"33-6",age:"40",country:"Brazil",picture:"images/silva.png"};
+	 var weidman={name:"Chris Weidman",record:"13-0",age:"31",country:"USA",picture:"images/weidman.png"};
+	 var rousey={name:"Ronda Rousey",record:"12-0",age:"28",country:"USA",picture:"images/ronda.png"};
+	 var penn={name:"BJ Penn",record:"16-10",age:"36",country:"USA",picture:"images/penn.png"};
+	//store in array
+	 var fighters=[jones,mcGregor,silva,weidman,aldo,rousey,penn];	
+	var noOfFightersDisplayed=0;//keep track of no of fighters displayed on screen
+	
+	function changeFighter(newpic)
+	{		   
+		$( "p" ).fadeOut(400,function()
+		{
+		var x=document.getElementById("mainfighterpic");
+				x.src=newpic;
+				changeStats(newpic);
+		});
+		$("p").fadeIn(400);
+	}
+	
+	function changeStats(newpic)
+	{
+		var fighterToDisplay;
+		var i=0;
+		var found=false;
+		while(!found)
+		{
+			if (fighters[i].picture==newpic)
+			{
+				fighterToDisplay=fighters[i];
+				found=true;
+				break;
+			}
+			i++;
+		}
+		//find fighter from picture and update stats
+		var desc=document.getElementById("fighterInfo");		
+		desc.innerHTML="<p> Name:	"+fighterToDisplay.name+"<br><br> Record:	"+fighterToDisplay.record+"<br><br>	Age: "+fighterToDisplay.age+"<br><br> Country: "+fighterToDisplay.country;
+	}
+	
+	function goLeft()//scroll the images left
+	{	
+		//check to see if there are any more fighters to display
+		if(noOfFightersDisplayed!=0)
+		{
+			noOfFightersDisplayed--;
+			var fightersToDisplay=noOfFightersDisplayed;
+			var i;
+			for (i=1;i<6;i++)
+			{
+				var p=document.getElementById("fighter0"+i);
+				//display the next consecutive fighters not including the first one
+				
+				
+				p.src=fighters[fightersToDisplay].picture;
+				p.setAttribute( "onclick", "javascript: changeFighter('"+fighters[fightersToDisplay].picture+"');" );
+				fightersToDisplay=fightersToDisplay+1;
+				
+			}
+		}
+	}
+	
+	function goRight()//scroll the images right
+	{	
+		//check to see if there are any more fighters to display
+		if(noOfFightersDisplayed!=2){
+			noOfFightersDisplayed++;
+			var fightersToDisplay=noOfFightersDisplayed;
+			var i;
+			for (i=1;i<6;i++)
+			{
+				var p=document.getElementById("fighter0"+i);
+				//display the next consecutive fighters not including the first one
+				
+				p.src=fighters[fightersToDisplay].picture;
+				p.setAttribute( "onclick", "javascript: changeFighter('"+fighters[fightersToDisplay].picture+"');" );
+				fightersToDisplay=fightersToDisplay+1;
+			}
+		
+			 	
+		}		
+	}
+	
+	</script>
+</body>
+</html>
